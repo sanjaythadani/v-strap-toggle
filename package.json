@@ -22,8 +22,8 @@
     "serve": "vite",
     "build": "run-s clean component:build css:build",
     "component:build": "vite build --mode lib",
-    "css:build": "sass --style compressed --no-source-map --no-error-css src/content:dist",
-    "css:watch": "sass --style expanded --embed-sources --no-error-css src/content:dist --watch",
+    "css:build": "sass --style compressed --no-source-map --no-error-css --load-path=node_modules src/content:dist",
+    "css:watch": "sass --style expanded --embed-sources --no-error-css --load-path=node_modules src/content:dist --watch",
     "test": "vitest",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
