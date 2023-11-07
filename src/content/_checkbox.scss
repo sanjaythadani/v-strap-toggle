@@ -1,0 +1,105 @@
+.vs-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 24px;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .vs-checkbox-background,
+        &:checked + .validationMessage + .vs-checkbox-background {
+            background-color: $checkbox-bg-checked !important;
+            border-color: $checkbox-border !important;
+
+            .vs-checkbox-checkmark {
+                display: block;
+            }
+        }
+    }
+
+    .vs-checkbox-background {
+        background-color: transparent;
+        position: absolute;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 18px;
+        height: 18px;
+        bottom: 2px;
+        left: 2px;
+        border-color: $checkbox-border;
+        border-width: 1.5px;
+        border-style: solid;
+        border-radius: 2px;
+        background-color: $checkbox-bg;
+        pointer-events: none;
+
+        .vs-checkbox-checkmark {
+            position: absolute;
+            top: 2px;
+            left: 1px;
+            width: 13px;
+            height: 7px;
+            display: none;
+            border-color: $checkbox-color;
+            border-left-width: 2px;
+            border-left-style: solid;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            -webkit-transform: scaleX(1) rotate(-45deg);
+            -ms-transform: scaleX(1) rotate(-45deg);
+            transform: scaleX(1) rotate(-45deg);
+        }
+    }
+
+    .vs-checkbox-text {
+        position: absolute;
+        left: 30px;
+        top: 1px;
+        font-weight: normal;
+    }
+
+    &.vs-checkbox-small {
+        .vs-checkbox-background {
+            width: 15px;
+            height: 15px;
+            bottom: 5px;
+
+            .vs-checkbox-checkmark {
+                width: 11px;
+                height: 5px;
+            }
+        }
+
+        .vs-checkbox-text {
+            left: 24px;
+            font-size: $font-size-sm;
+        }
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+
+        input {
+            &:checked + .vs-checkbox-background,
+            &:checked + .validationMessage + .vs-checkbox-background {
+                background-color: $checkbox-bg-disabled !important;
+            }
+        }
+
+        .vs-checkbox-background {
+            background-color: $checkbox-bg-disabled !important;
+        }
+    }
+}

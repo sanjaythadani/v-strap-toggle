@@ -1,0 +1,49 @@
+{
+  "name": "v-strap-toggle",
+  "version": "0.1.0",
+  "description": "UI toggle components for Vue with Bootstrap styling",
+  "author": "Sanjay Thadani",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/v-strap-toggle.umd.cjs",
+  "module": "./dist/v-strap-toggle.js",
+  "exports": {
+    ".": {
+      "import": "./dist/v-strap-toggle.js",
+      "require": "./dist/v-strap-toggle.umd.cjs"
+    },
+    "./style.css": "./dist/v-strap-toggle.css"
+  },
+  "scripts": {
+    "clean": "del-cli --force dist/**",
+    "serve": "vite",
+    "build": "run-s clean component:build css:build",
+    "component:build": "vite build --mode lib",
+    "css:build": "sass --style compressed --no-source-map --no-error-css src/content:dist",
+    "css:watch": "sass --style expanded --embed-sources --no-error-css src/content:dist --watch",
+    "test": "vitest",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.4.0",
+    "@vue/test-utils": "^2.4.1",
+    "del-cli": "^5.1.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "jsdom": "^22.1.0",
+    "npm-run-all2": "^6.1.1",
+    "sass": "^1.69.5",
+    "vite": "^4.4.11",
+    "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.4"
+  }
+}

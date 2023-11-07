@@ -1,0 +1,14 @@
+# Build results
+dist/*
+
+# VS Code options
+.vscode/**
+!/.vscode/launch.json
+!/.vscode/tasks.json
+
+# Node
+.ntvs_analysis.dat
+**/node_modules/*
+
+# NPM
+*package-lock.json
